@@ -17,4 +17,3 @@ const ProductProvider = ({children}) => {
 };
 
 export default ProductProvider;
-
