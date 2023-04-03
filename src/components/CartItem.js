@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdAdd, IoMdClose, IoMdRemove } from 'react-icons/io';
+import { CartContext } from '../contexts/CartContext';
+
 
 const CartItem = ({item}) => {
+  const { removeFromCart, increaseAmount, decreaseAmount } = useContext(CartContext);
   //destructure item
   const {id, title, image, price, amount} = item;
   return (
@@ -17,7 +20,7 @@ const CartItem = ({item}) => {
         <div className='flex justify-between mb-2'>
           <Link to={`/product/${id}`} className='text-sm uppercase font-medium max-w-[240px] text-primary hover:underline' >{title}
           </Link>
-          <div className='text-xl cursor-pointer'>
+          <div onClick={() => removeFromCart(id)} className='text-xl cursor-pointer'>
             <IoMdClose className='text-gray-500 hover:text-red-500 transition' /> 
           </div>
         </div>
@@ -25,13 +28,13 @@ const CartItem = ({item}) => {
           {/*qty */}
           <div  className='flex flex-1 max-w-[100px]  items-center h-full border text-primary font-medium rounded-full'>
              {/*minus icon */} 
-            <div className='flex-1 flex justify-center items-center cursor-pointer' >
+            <div onClick={() => decreaseAmount(id)} className='flex-1 flex justify-center items-center cursor-pointer' >
               <IoMdRemove  />
             </div>
              {/*amount */}
              <div className='h-full flex justify-center items-center px-2' >{amount}</div>
              {/*plus icon */} 
-             <div className='flex-1 h-full flex justify-center items-center cursor-pointer'>
+             <div onClick={()=> increaseAmount(id)} className='flex-1 h-full flex justify-center items-center cursor-pointer'>
               <IoMdAdd  />
             </div>
           </div>
