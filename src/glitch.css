@@ -1,0 +1,56 @@
+.glitch {
+  font-size: 85px;
+  letter-spacing: 50px;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitch::before {
+  color: #f7faf6; /* green */
+  z-index: -1;
+  animation: glitch-anim 2s infinite;
+}
+
+.glitch::after {
+  color: #f4f4f4; /* magenta */
+  z-index: -2;
+  animation: glitch-anim 3s infinite;
+}
+
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.back {
+  background: radial-gradient(rgb(241, 241, 241) 8%,
+    transparent 8%
+    );
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+}

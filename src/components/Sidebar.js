@@ -28,7 +28,7 @@ const Sidebar = () => {
           <div className='uppercase font-semibold'>
             <span className='mr-2' >Total: </span>€ {parseFloat(total).toFixed(2)}
           </div>
-          <div onClick={ clearCart } className='cursor-pointer py-4 bg-red-500 text-white w-12 h-12 flex justify-center item-center text-xl rounded-md'>
+          <div onClick={ clearCart } className='cursor-pointer py-4 bg-red-400 text-white w-12 h-12 flex justify-center item-center text-xl rounded-full'>
              <FiTrash2/>
           </div>
         </div>
