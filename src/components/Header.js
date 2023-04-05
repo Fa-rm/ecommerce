@@ -4,6 +4,7 @@ import {B, BsBag} from 'react-icons/bs';
 import { CartContext } from '../contexts/CartContext';
 import { Link } from 'react-router-dom';
 import Logo from '../img/BROAD.svg';
+import '../glitch.css';
 
 const Header = () => {
   const [isActive, setIsActive] = useState(true);
@@ -26,7 +27,7 @@ const Header = () => {
     </Link>
     <div onClick={()=> setIsOpen(!isOpen)} className='cursor-pointer flex relative' >
       <BsBag className='text-2xl'/>
-      <div className='bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center' >{ itemAmount }</div>
+      <div className=' bg-green-800 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center' >{ itemAmount }</div>
       </div>
     </div>
   </header>
